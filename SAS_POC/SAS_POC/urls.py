@@ -16,12 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from POC_V1.views import loadInitialSASPage
-from POC_V1.views import getSimilarTickets
-
+from POC_V1.views import home,get_ticket_details,get_similar_tickets
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
-     url(r'^getSimilarTickets/', getSimilarTickets),
-     url(r'^home/', loadInitialSASPage),
-    
-]
+     url(r'^home$', home),
+     url(r'^get_similar_tickets$', get_similar_tickets),
+     url(r'^get_ticket_details$', get_ticket_details),
+     ]

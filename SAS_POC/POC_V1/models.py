@@ -2,17 +2,18 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class Ticket_details(models.Model):
-    ticket_id = models.IntegerField()
+class TicketDetails(models.Model):
+    ticket_id = models.IntegerField(db_index=True)
     subject = models.TextField()
     description = models.TextField()
     status = models.CharField(max_length=50)
     source = models.CharField(max_length=50)
     priority = models.IntegerField()
-    type = models.CharField(max_length=50)
+    t_type = models.CharField(max_length=50)
     agent = models.CharField(max_length=50)
     group_name = models.CharField(max_length=50)
     created_at = models.DateField()
+    def __unicode__(self):
+        return unicode(self.ticket_id)
 
-    def __str__(self):              # __unicode__ on Python 2
-        return self.ticket_id
+

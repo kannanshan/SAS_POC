@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'SAS_POC.wsgi.application'
 
 DATABASES = {
    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'test',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sas_poc',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'freshdesk',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
