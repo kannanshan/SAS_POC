@@ -12,15 +12,16 @@ def home(request):
 @csrf_exempt
 def get_ticket_details(request):
   ticket_id = int(request.POST.get('ticket_id'))
+  print ticket_id
   ticket_detail = TicketDetails.objects.get(id=ticket_id)
   html = render_to_string('Templates/ticket_details.html', {'ticket_detail': ticket_detail})
   return HttpResponse(html)
 
 @csrf_exempt
 def get_similar_tickets(request):
-  ticket_id = request.POST.get('ticket_id')
-  print ticket_id
+  ticket_id = int(request.POST.get('ticket_id'))
   similar_tickets = get_similar_tickets_from_ml_engine(ticket_id)
+  similar_tickets = TicketDetails.objects.filter(id__in =similar_tickets)
   html = render_to_string('Templates/similar_ticket_details.html', {'similar_tickets': similar_tickets})
   return HttpResponse(html)
 

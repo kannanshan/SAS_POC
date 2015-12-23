@@ -1,4 +1,7 @@
-{% for tickets in similar_tickets %}
-<div>{{ tickets }}</div>
-{% endfor %}
+<div>
+	{% for ticket_detail in similar_tickets %}
+	<br></br>
+	{{ ticket_detail.subject }}
+{% endfor %}</div>
+
 
